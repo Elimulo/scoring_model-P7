@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/c11aee794b834bd896abe58b4452c393/artifacts
+deleted_time: 1727965247178
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: c11aee794b834bd896abe58b4452c393
+run_name: caring-lark-601
+run_uuid: c11aee794b834bd896abe58b4452c393
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727965004933
+status: 1
+tags: []
+user_id: elise

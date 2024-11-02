@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/83f62e7c46774fd691206ddfd5b24b7c/artifacts
+deleted_time: 1727967074228
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 83f62e7c46774fd691206ddfd5b24b7c
+run_name: sincere-horse-42
+run_uuid: 83f62e7c46774fd691206ddfd5b24b7c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727965521779
+status: 1
+tags: []
+user_id: elise

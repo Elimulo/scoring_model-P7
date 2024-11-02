@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1730566859592
+current_stage: None
+description: LightGBM model trained with no class_weight, using 3-fold cross-validation.
+last_updated_timestamp: 1730566859615
+name: LightGBM with no class_weight
+run_id: 40e5d654583c48428889ed422f7be4ae
+run_link: ''
+source: mlflow-artifacts:/0/40e5d654583c48428889ed422f7be4ae/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/40e5d654583c48428889ed422f7be4ae/artifacts/model
+user_id: null
+version: 1

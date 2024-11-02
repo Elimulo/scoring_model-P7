@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/642f797541c545c0aba74a41f7da5d83/artifacts
+deleted_time: 1727965247046
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 642f797541c545c0aba74a41f7da5d83
+run_name: spiffy-trout-858
+run_uuid: 642f797541c545c0aba74a41f7da5d83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727964932291
+status: 1
+tags: []
+user_id: elise

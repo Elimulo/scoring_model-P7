@@ -1,0 +1,1 @@
+light gbm using SMOTE (0.25) and random under sample but deleting all Nans columns

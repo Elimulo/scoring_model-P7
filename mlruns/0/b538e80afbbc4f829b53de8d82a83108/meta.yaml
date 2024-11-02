@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/b538e80afbbc4f829b53de8d82a83108/artifacts
+deleted_time: 1727967074228
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: b538e80afbbc4f829b53de8d82a83108
+run_name: defiant-bass-718
+run_uuid: b538e80afbbc4f829b53de8d82a83108
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727965140726
+status: 1
+tags: []
+user_id: elise

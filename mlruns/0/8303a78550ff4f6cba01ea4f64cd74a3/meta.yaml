@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/8303a78550ff4f6cba01ea4f64cd74a3/artifacts
+deleted_time: 1730466506407
+end_time: 1728045485895
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 8303a78550ff4f6cba01ea4f64cd74a3
+run_name: LightGBM with SMOTE and RUS
+run_uuid: 8303a78550ff4f6cba01ea4f64cd74a3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728045426222
+status: 4
+tags: []
+user_id: elise

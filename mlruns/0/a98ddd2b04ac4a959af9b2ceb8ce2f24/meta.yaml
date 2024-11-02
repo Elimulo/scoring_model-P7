@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/a98ddd2b04ac4a959af9b2ceb8ce2f24/artifacts
+deleted_time: 1727967089523
+end_time: 1726486995720
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: a98ddd2b04ac4a959af9b2ceb8ce2f24
+run_name: LightGBM Home Credit Risk
+run_uuid: a98ddd2b04ac4a959af9b2ceb8ce2f24
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726482544854
+status: 4
+tags: []
+user_id: elise
