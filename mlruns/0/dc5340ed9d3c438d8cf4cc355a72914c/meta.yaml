@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/dc5340ed9d3c438d8cf4cc355a72914c/artifacts
+end_time: 1732269006667
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dc5340ed9d3c438d8cf4cc355a72914c
+run_name: placid-mink-675
+run_uuid: dc5340ed9d3c438d8cf4cc355a72914c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732269004565
+status: 4
+tags: []
+user_id: elise

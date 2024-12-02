@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1731431300573
+current_stage: None
+description: LightGBM model trained , using 3-fold cross-validation.
+last_updated_timestamp: 1731431300590
+name: LightGBM no with x_filled
+run_id: 123710e4c6dc411ab6b2ad93df7db3ba
+run_link: ''
+source: mlflow-artifacts:/0/123710e4c6dc411ab6b2ad93df7db3ba/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/123710e4c6dc411ab6b2ad93df7db3ba/artifacts/model
+user_id: null
+version: 1

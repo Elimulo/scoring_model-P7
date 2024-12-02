@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1730568012062
+current_stage: None
+description: ''
+last_updated_timestamp: 1730568012062
+name: LightGBM with SMOTE and RUS
+run_id: 66d0f69ac6e74ee899efb3e6c9bc5061
+run_link: ''
+source: mlflow-artifacts:/0/66d0f69ac6e74ee899efb3e6c9bc5061/artifacts/model_fold_3
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/66d0f69ac6e74ee899efb3e6c9bc5061/artifacts/model_fold_3
+user_id: null
+version: 3

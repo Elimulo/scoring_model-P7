@@ -44,12 +44,12 @@ def timer(title):
 
 
 # # One-hot encoding for categorical columns with get_dummies
-# def one_hot_encoder(df, nan_as_category = True):
-#     original_columns = list(df.columns)
-#     categorical_columns = [col for col in df.columns if df[col].dtype == 'object']
-#     df = pd.get_dummies(df, columns= categorical_columns, dummy_na= nan_as_category)
-#     new_columns = [c for c in df.columns if c not in original_columns]
-#     return df, new_columns
+def one_hot_encoder(df, nan_as_category = True):
+    original_columns = list(df.columns)
+    categorical_columns = [col for col in df.columns if df[col].dtype == 'object']
+    df = pd.get_dummies(df, columns= categorical_columns, dummy_na= nan_as_category)
+    new_columns = [c for c in df.columns if c not in original_columns]
+    return df, new_columns
 
 # Preprocess application_train.csv and application_test.csv
 def application_train_test(num_rows = None, nan_as_category = False):
@@ -67,7 +67,7 @@ def application_train_test(num_rows = None, nan_as_category = False):
     for bin_feature in ['CODE_GENDER', 'FLAG_OWN_CAR', 'FLAG_OWN_REALTY']:
         df[bin_feature], uniques = pd.factorize(df[bin_feature])
     ## Categorical features with One-Hot encode
-    # df, cat_cols = one_hot_encoder(df, nan_as_category)
+    df, cat_cols = one_hot_encoder(df, nan_as_category)
     
     # NaN values for DAYS_EMPLOYED: 365.243 -> nan
     df['DAYS_EMPLOYED'].replace(365243, np.nan, inplace= True)
@@ -87,13 +87,13 @@ def bureau_and_balance(num_rows = None, nan_as_category = True):
     bureau = bureau.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
     bb = pd.read_csv('data/bureau_balance.csv', nrows = num_rows)
     bb = bb.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
-    # bb, bb_cat = one_hot_encoder(bb, nan_as_category)
-    # bureau, bureau_cat = one_hot_encoder(bureau, nan_as_category)
+    bb, bb_cat = one_hot_encoder(bb, nan_as_category)
+    bureau, bureau_cat = one_hot_encoder(bureau, nan_as_category)
     
     # Bureau balance: Perform aggregations and merge with bureau.csv
     bb_aggregations = {'MONTHS_BALANCE': ['min', 'max', 'size']}
-    # for col in bb_cat:
-    #     bb_aggregations[col] = ['mean']
+    for col in bb_cat:
+        bb_aggregations[col] = ['mean']
     bb_agg = bb.groupby('SK_ID_BUREAU').agg(bb_aggregations)
     bb_agg.columns = pd.Index([e[0] + "_" + e[1].upper() for e in bb_agg.columns.tolist()])
     bureau = bureau.join(bb_agg, how='left', on='SK_ID_BUREAU')
@@ -119,9 +119,9 @@ def bureau_and_balance(num_rows = None, nan_as_category = True):
         'MONTHS_BALANCE_SIZE': ['mean', 'sum']
     }
     # Bureau and bureau_balance categorical features
-    # cat_aggregations = {}
-    # for cat in bureau_cat: cat_aggregations[cat] = ['mean']
-    # for cat in bb_cat: cat_aggregations[cat + "_MEAN"] = ['mean']
+    cat_aggregations = {}
+    for cat in bureau_cat: cat_aggregations[cat] = ['mean']
+    for cat in bb_cat: cat_aggregations[cat + "_MEAN"] = ['mean']
     
     bureau_agg = bureau.groupby('SK_ID_CURR').agg({**num_aggregations, **cat_aggregations})
     bureau_agg.columns = pd.Index(['BURO_' + e[0] + "_" + e[1].upper() for e in bureau_agg.columns.tolist()])
@@ -145,7 +145,7 @@ def bureau_and_balance(num_rows = None, nan_as_category = True):
 def previous_applications(num_rows = None, nan_as_category = True):
     prev = pd.read_csv('data/previous_application.csv', nrows = num_rows)
     prev = prev.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
-    # prev, cat_cols = one_hot_encoder(prev, nan_as_category= True)
+    prev, cat_cols = one_hot_encoder(prev, nan_as_category= True)
     # Days 365.243 values -> nan
     prev['DAYS_FIRST_DRAWING'].replace(365243, np.nan, inplace= True)
     prev['DAYS_FIRST_DUE'].replace(365243, np.nan, inplace= True)
@@ -169,8 +169,8 @@ def previous_applications(num_rows = None, nan_as_category = True):
     }
     # Previous applications categorical features
     cat_aggregations = {}
-    # for cat in cat_cols:
-    #     cat_aggregations[cat] = ['mean']
+    for cat in cat_cols:
+        cat_aggregations[cat] = ['mean']
     
     prev_agg = prev.groupby('SK_ID_CURR').agg({**num_aggregations, **cat_aggregations})
     prev_agg.columns = pd.Index(['PREV_' + e[0] + "_" + e[1].upper() for e in prev_agg.columns.tolist()])
@@ -192,15 +192,15 @@ def previous_applications(num_rows = None, nan_as_category = True):
 def pos_cash(num_rows = None, nan_as_category = True):
     pos = pd.read_csv('data/POS_CASH_balance.csv', nrows = num_rows)
     pos = pos.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
-    # pos, cat_cols = one_hot_encoder(pos, nan_as_category= True)
+    pos, cat_cols = one_hot_encoder(pos, nan_as_category= True)
     # Features
     aggregations = {
         'MONTHS_BALANCE': ['max', 'mean', 'size'],
         'SK_DPD': ['max', 'mean'],
         'SK_DPD_DEF': ['max', 'mean']
     }
-    # for cat in cat_cols:
-    #     aggregations[cat] = ['mean']
+    for cat in cat_cols:
+        aggregations[cat] = ['mean']
     
     pos_agg = pos.groupby('SK_ID_CURR').agg(aggregations)
     pos_agg.columns = pd.Index(['POS_' + e[0] + "_" + e[1].upper() for e in pos_agg.columns.tolist()])
@@ -214,7 +214,7 @@ def pos_cash(num_rows = None, nan_as_category = True):
 def installments_payments(num_rows = None, nan_as_category = True):
     ins = pd.read_csv('data/installments_payments.csv', nrows = num_rows)
     ins = ins.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
-    # ins, cat_cols = one_hot_encoder(ins, nan_as_category= True)
+    ins, cat_cols = one_hot_encoder(ins, nan_as_category= True)
     # Percentage and difference paid in each installment (amount paid and installment value)
     ins['PAYMENT_PERC'] = ins['AMT_PAYMENT'] / ins['AMT_INSTALMENT']
     ins['PAYMENT_DIFF'] = ins['AMT_INSTALMENT'] - ins['AMT_PAYMENT']
@@ -234,8 +234,8 @@ def installments_payments(num_rows = None, nan_as_category = True):
         'AMT_PAYMENT': ['min', 'max', 'mean', 'sum'],
         'DAYS_ENTRY_PAYMENT': ['max', 'mean', 'sum']
     }
-    # for cat in cat_cols:
-    #     aggregations[cat] = ['mean']
+    for cat in cat_cols:
+        aggregations[cat] = ['mean']
     ins_agg = ins.groupby('SK_ID_CURR').agg(aggregations)
     ins_agg.columns = pd.Index(['INSTAL_' + e[0] + "_" + e[1].upper() for e in ins_agg.columns.tolist()])
     # Count installments accounts
@@ -248,7 +248,7 @@ def installments_payments(num_rows = None, nan_as_category = True):
 def credit_card_balance(num_rows = None, nan_as_category = True):
     cc = pd.read_csv('data/credit_card_balance.csv', nrows = num_rows)
     cc = cc.rename(columns = lambda x:re.sub('[^A-Za-z0-9_]+', '', x))
-    # cc, cat_cols = one_hot_encoder(cc, nan_as_category= True)
+    cc, cat_cols = one_hot_encoder(cc, nan_as_category= True)
     # General aggregations
     cc.drop(['SK_ID_PREV'], axis= 1, inplace = True)
     cc_agg = cc.groupby('SK_ID_CURR').agg(['min', 'max', 'mean', 'sum', 'var'])

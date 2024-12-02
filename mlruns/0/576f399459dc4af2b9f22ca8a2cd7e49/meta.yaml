@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/576f399459dc4af2b9f22ca8a2cd7e49/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 576f399459dc4af2b9f22ca8a2cd7e49
+run_name: trusting-frog-232
+run_uuid: 576f399459dc4af2b9f22ca8a2cd7e49
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731431560691
+status: 1
+tags: []
+user_id: elise

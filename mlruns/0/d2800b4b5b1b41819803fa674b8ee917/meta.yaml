@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/d2800b4b5b1b41819803fa674b8ee917/artifacts
+deleted_time: 1731424970337
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: d2800b4b5b1b41819803fa674b8ee917
+run_name: XGBoost with class_weight
+run_uuid: d2800b4b5b1b41819803fa674b8ee917
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731424366255
+status: 1
+tags: []
+user_id: elise

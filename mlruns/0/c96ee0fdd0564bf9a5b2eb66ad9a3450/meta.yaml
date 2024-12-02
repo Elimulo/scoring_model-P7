@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/0/c96ee0fdd0564bf9a5b2eb66ad9a3450/artifacts
+deleted_time: 1730568291445
 end_time: 1730554066854
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: c96ee0fdd0564bf9a5b2eb66ad9a3450
 run_name: LightGBM with no class_weight
 run_uuid: c96ee0fdd0564bf9a5b2eb66ad9a3450
