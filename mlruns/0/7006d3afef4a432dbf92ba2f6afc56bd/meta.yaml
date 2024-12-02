@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/7006d3afef4a432dbf92ba2f6afc56bd/artifacts
+end_time: 1733172065772
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7006d3afef4a432dbf92ba2f6afc56bd
+run_name: LightGBM_final
+run_uuid: 7006d3afef4a432dbf92ba2f6afc56bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733172060763
+status: 3
+tags: []
+user_id: elise

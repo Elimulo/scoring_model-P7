@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/0/dc5340ed9d3c438d8cf4cc355a72914c/artifacts
+deleted_time: 1733152234893
 end_time: 1732269006667
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: dc5340ed9d3c438d8cf4cc355a72914c
 run_name: placid-mink-675
 run_uuid: dc5340ed9d3c438d8cf4cc355a72914c

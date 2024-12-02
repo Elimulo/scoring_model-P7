@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/0/576f399459dc4af2b9f22ca8a2cd7e49/artifacts
+deleted_time: 1733152234899
 end_time: null
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 576f399459dc4af2b9f22ca8a2cd7e49
 run_name: trusting-frog-232
 run_uuid: 576f399459dc4af2b9f22ca8a2cd7e49
