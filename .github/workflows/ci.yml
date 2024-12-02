@@ -25,6 +25,19 @@ jobs:
       run: |
         pytest tests_unitaires/
 
+    - name: Generate Evidently Report
+      env:
+        OUTPUT_DIR: reports
+      run: |
+        mkdir -p $OUTPUT_DIR
+        python generate_evidently_report.py --output $OUTPUT_DIR/report.html
+
+    - name: Upload Evidently Report as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: evidently-report
+        path: reports/
+
     - name: Deploy to PythonAnywhere
       env:
         PA_TOKEN: ${{ secrets.PA_TOKEN }}
