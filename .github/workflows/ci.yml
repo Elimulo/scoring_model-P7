@@ -23,7 +23,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest tests_unitaires/
+        pytest test_unitaires/
 
     - name: Generate Evidently Report
       env:
