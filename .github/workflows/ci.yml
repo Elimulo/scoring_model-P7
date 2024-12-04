@@ -34,18 +34,6 @@ jobs:
       run: |
         pytest test_unitaires/
 
-    # - name: Generate Evidently Report
-    #   env:
-    #     OUTPUT_DIR: reports
-    #   run: |
-    #     mkdir -p $OUTPUT_DIR
-    #     python drift.py --output $OUTPUT_DIR/report.html
-
-    # - name: Upload Evidently Report as Artifact
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: evidently-report
-    #     path: reports/
 
     - name: Upload files to PythonAnywhere
       env:
@@ -57,8 +45,3 @@ jobs:
       - name: SSH command to restart app
         run: |
           ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
-
-
-    # - name: Stop MLflow Server
-    #   run: |
-    #     kill $(cat mlflow_pid.txt)
