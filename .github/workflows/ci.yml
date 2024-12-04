@@ -68,3 +68,7 @@ jobs:
         env:
           PA_USERNAME: ${{ secrets.PA_USERNAME }}
           PA_PASSWORD: ${{ secrets.PA_PASSWORD }}
+
+      - name: Stop MLflow Server
+        run: |
+          kill $(cat mlflow_pid.txt)
