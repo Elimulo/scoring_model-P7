@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -27,7 +26,9 @@ jobs:
         pip install -r requirements.txt
 
     - name: Start MLflow Server
-      run: mlflow server --host 127.0.0.1 --port 5000 &
+      run: |
+        mlflow server --host 127.0.0.1 --port 5000 &
+        echo $! > mlflow_pid.txt
 
     - name: Run tests
       run: |
@@ -38,7 +39,7 @@ jobs:
         OUTPUT_DIR: reports
       run: |
         mkdir -p $OUTPUT_DIR
-        python generate_evidently_report.py --output $OUTPUT_DIR/report.html
+        python drift.py --output $OUTPUT_DIR/report.html
 
     - name: Upload Evidently Report as Artifact
       uses: actions/upload-artifact@v3
@@ -50,4 +51,9 @@ jobs:
       env:
         PA_TOKEN: ${{ secrets.PA_TOKEN }}
       run: |
-        curl -X POST -H "Authorization: Token $PA_TOKEN" -d "source_dir=/path/to/code" https://www.pythonanywhere.com/api/v0/user/elimulo/webapps/<app_name>/reload/
+        curl -X POST -H "Authorization: Token $PA_TOKEN" -d "source_dir=/path/to/code" https://www.pythonanywhere.com/api/v0/user/elimulo/webapps/myflaskapp/reload/
+
+
+    - name: Stop MLflow Server
+      run: |
+        kill $(cat mlflow_pid.txt)
