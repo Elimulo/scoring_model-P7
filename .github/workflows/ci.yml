@@ -52,12 +52,6 @@ jobs:
 
       - name: Deploy to PythonAnywhere using SCP
         run: |
-          # Optional: if you use SSH key instead of password-based authentication
-          # mkdir -p ~/.ssh
-          # echo "${{ secrets.PA_SSH_KEY }}" > ~/.ssh/id_rsa
-          # chmod 600 ~/.ssh/id_rsa
-          
-          # Run SCP to upload the app
           scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
         env:
           PA_USERNAME: ${{ secrets.PA_USERNAME }}
