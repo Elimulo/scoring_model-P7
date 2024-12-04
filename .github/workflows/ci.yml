@@ -34,18 +34,18 @@ jobs:
       run: |
         pytest test_unitaires/
 
-    - name: Generate Evidently Report
-      env:
-        OUTPUT_DIR: reports
-      run: |
-        mkdir -p $OUTPUT_DIR
-        python drift.py --output $OUTPUT_DIR/report.html
+    # - name: Generate Evidently Report
+    #   env:
+    #     OUTPUT_DIR: reports
+    #   run: |
+    #     mkdir -p $OUTPUT_DIR
+    #     python drift.py --output $OUTPUT_DIR/report.html
 
-    - name: Upload Evidently Report as Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: evidently-report
-        path: reports/
+    # - name: Upload Evidently Report as Artifact
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: evidently-report
+    #     path: reports/
 
     - name: Deploy to PythonAnywhere
       env:
