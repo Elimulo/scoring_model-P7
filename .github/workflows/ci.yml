@@ -7,7 +7,7 @@ on:
 
 env:
   MLFLOW_TRACKING_URI: http://127.0.0.1:5000
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,20 +27,45 @@ jobs:
 
     - name: Start MLflow Server
       run: |
-        mlflow server --host 127.0.0.1 --port 5000 &
+        mlflow server --host 127.0.0.1 --port 5000 &  # Run MLflow server in the background
         echo $! > mlflow_pid.txt
 
     - name: Run tests
       run: |
         pytest test_unitaires/
 
-    - name: Upload files to PythonAnywhere
-      env:
-        PA_USERNAME: ${{ secrets.PA_USERNAME }}
-        PA_PASSWORD: ${{ secrets.PA_PASSWORD }}
-      run: |
-        scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
+  deploy:
+    runs-on: ubuntu-latest  # Or any runner of your choice
+    needs: build  # Ensure the build job runs before deployment
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up environment variables
+        run: |
+          echo "PA_USERNAME=${{ secrets.PA_USERNAME }}" >> $GITHUB_ENV
+          echo "PA_PASSWORD=${{ secrets.PA_PASSWORD }}" >> $GITHUB_ENV
+
+      - name: Install SSH client (if not already installed)
+        run: sudo apt-get install -y openssh-client
+
+      - name: Deploy to PythonAnywhere using SCP
+        run: |
+          # Optional: if you use SSH key instead of password-based authentication
+          # mkdir -p ~/.ssh
+          # echo "${{ secrets.PA_SSH_KEY }}" > ~/.ssh/id_rsa
+          # chmod 600 ~/.ssh/id_rsa
           
-    - name: SSH command to restart app
-      run: |
-        ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
+          # Run SCP to upload the app
+          scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
+        env:
+          PA_USERNAME: ${{ secrets.PA_USERNAME }}
+          PA_PASSWORD: ${{ secrets.PA_PASSWORD }}
+
+      - name: SSH command to restart app on PythonAnywhere
+        run: |
+          ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
+        env:
+          PA_USERNAME: ${{ secrets.PA_USERNAME }}
+          PA_PASSWORD: ${{ secrets.PA_PASSWORD }}
