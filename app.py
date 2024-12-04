@@ -7,7 +7,7 @@ app = Flask(__name__)
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 # Example model URI
-model_uri = 'runs:/f8d1df805a2a4209b7ec662c6ab1dc00/lightgbm_model_final' 
+model_uri = 'runs:/f18925492b974af4aaae5fe4d38cd151/lightgbm_model_final' 
 
 # Load the model from the server
 model = mlflow.pyfunc.load_model(model_uri)

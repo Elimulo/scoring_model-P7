@@ -5,10 +5,15 @@ on:
     branches:
       - main
 
+env:
+  MLFLOW_TRACKING_URI: http://127.0.0.1:5000
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -20,6 +25,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+
+    - name: Start MLflow Server
+      run: mlflow server --host 127.0.0.1 --port 5000 &
 
     - name: Run tests
       run: |
