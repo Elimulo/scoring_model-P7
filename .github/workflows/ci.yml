@@ -50,8 +50,9 @@ jobs:
       - name: Install SSH client (if not already installed)
         run: sudo apt-get install -y openssh-client
 
-      - name: Add PythonAnywhere host to known hosts
+      - name: Ensure ~/.ssh directory exists
         run: |
+          mkdir -p ~/.ssh
           ssh-keyscan pythonanywhere.com >> ~/.ssh/known_hosts
 
       - name: Deploy to PythonAnywhere using SCP
