@@ -6,7 +6,7 @@ import numpy as np
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 # Example model URI
-model_uri = 'runs:/f18925492b974af4aaae5fe4d38cd151/lightgbm_model_final'
+model_uri = 'runs:/65a069f4d14f4a37a59045771ae2a7f2/LightGBM_final'
 
 # This function is used to load the model from the remote server
 @pytest.fixture(scope='module')

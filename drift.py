@@ -3,8 +3,8 @@ from evidently.metric_preset import DataDriftPreset
 from evidently import ColumnMapping
 
 
-X_train = pd.read_csv('../data/application_train.csv', index_col='SK_ID_CURR').drop(columns=['TARGET'])
-X_test = pd.read_csv('../data/application_test.csv', index_col='SK_ID_CURR')
+X_train = pd.read_csv('/data/train_df.csv', index_col='SK_ID_CURR').drop(columns=['TARGET'])
+X_test = pd.read_csv('/data/test_df.csv', index_col='SK_ID_CURR')
 
 mask = (info_df['Dtype'].str.contains('str')) | (info_df['n_unique']==2)
 categorical = list(info_df.loc[mask,:].index)

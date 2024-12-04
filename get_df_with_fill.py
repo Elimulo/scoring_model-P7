@@ -1,20 +1,3 @@
-# %% [code]
-# HOME CREDIT DEFAULT RISK COMPETITION
-# Most features are created by applying min, max, mean, sum and var functions to grouped tables. 
-# Little feature selection is done and overfitting might be a problem since many features are related.
-# The following key ideas were used:
-# - Divide or subtract important features to get rates (like annuity and income)
-# - In Bureau Data: create specific features for Active credits and Closed credits
-# - In Previous Applications: create specific features for Approved and Refused applications
-# - Modularity: one function for each table (except bureau_balance and application_test)
-# - One-hot encoding for categorical features
-# All tables are joined with the application DF using the SK_ID_CURR key (except bureau_balance).
-# You can use LightGBM with KFold or Stratified KFold.
-
-# Update 16/06/2018:
-# - Added Payment Rate feature
-# - Removed index from features
-# - Use standard KFold CV (not stratified)
 
 import numpy as np
 import pandas as pd
@@ -339,6 +322,13 @@ def main(debug = False):
         df_filled = fill_nans_with_median_except_target(df_cleaned)
         df_filled.columns = df_filled.columns.str.replace('[^A-Za-z0-9_]+', '', regex=True)   
         df_filled.to_csv('data/df_filled.csv', index=False)
+        
+        train_df = df[df['TARGET'].notnull()]
+        train_df.to_csv('data/train_df.csv', index=False)
+        test_df = df[df['TARGET'].isnull()]
+        test_df.to_csv('data/test_df.csv', index=False)
+        
+    return train_df, test_df
 
 if __name__ == "__main__":
     

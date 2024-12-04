@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1733327946872
+current_stage: None
+description: ''
+last_updated_timestamp: 1733327946872
+name: LightGBM_Final
+run_id: 0bbbf678e47d49279ccb55fe554b3e66
+run_link: ''
+source: mlflow-artifacts:/0/0bbbf678e47d49279ccb55fe554b3e66/artifacts/LightGBM_Final
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/0bbbf678e47d49279ccb55fe554b3e66/artifacts/LightGBM_Final
+user_id: null
+version: 5

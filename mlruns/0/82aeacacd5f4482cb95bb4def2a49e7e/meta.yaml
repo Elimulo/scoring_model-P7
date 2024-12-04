@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/82aeacacd5f4482cb95bb4def2a49e7e/artifacts
+deleted_time: 1733324190146
+end_time: 1733323755862
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 82aeacacd5f4482cb95bb4def2a49e7e
+run_name: bold-bat-2
+run_uuid: 82aeacacd5f4482cb95bb4def2a49e7e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733323752741
+status: 3
+tags: []
+user_id: elise

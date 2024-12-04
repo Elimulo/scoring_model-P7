@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/068cbc3d62cd454e86f1f0fe84e96a2e/artifacts
+deleted_time: 1733326574148
+end_time: 1733325860006
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 068cbc3d62cd454e86f1f0fe84e96a2e
+run_name: overjoyed-steed-15
+run_uuid: 068cbc3d62cd454e86f1f0fe84e96a2e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733325859944
+status: 4
+tags: []
+user_id: elise
