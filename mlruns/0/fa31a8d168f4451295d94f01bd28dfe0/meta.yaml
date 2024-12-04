@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/0/fa31a8d168f4451295d94f01bd28dfe0/artifacts
+deleted_time: 1733240873835
 end_time: 1731422129173
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: fa31a8d168f4451295d94f01bd28dfe0
 run_name: LightGBM with SMOTE and RUS
 run_uuid: fa31a8d168f4451295d94f01bd28dfe0

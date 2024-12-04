@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1733236679124
+current_stage: None
+description: LightGBM model trained with SMOTE and RandomUnderSampler
+last_updated_timestamp: 1733236679152
+name: LightGBM with SMOTE and RUS
+run_id: 172d9c5150c74857b83f986abc2c9b96
+run_link: ''
+source: mlflow-artifacts:/0/172d9c5150c74857b83f986abc2c9b96/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/172d9c5150c74857b83f986abc2c9b96/artifacts/model
+user_id: null
+version: 5

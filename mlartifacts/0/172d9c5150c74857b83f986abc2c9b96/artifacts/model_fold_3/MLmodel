@@ -1,0 +1,19 @@
+artifact_path: model_fold_3
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.5.0
+    model_class: lightgbm.sklearn.LGBMClassifier
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.10.6
+mlflow_version: 2.18.0
+model_size_bytes: 3070106
+model_uuid: 4e9ffdce88984320af216e4baeda98ef
+run_id: 172d9c5150c74857b83f986abc2c9b96
+utc_time_created: '2024-12-03 14:37:54.928534'

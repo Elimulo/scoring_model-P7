@@ -1,0 +1,15 @@
+aliases: []
+creation_timestamp: 1733237009485
+current_stage: None
+description: LightGBM model trained with class_weight scale pos weight, using 3-fold
+  cross-validation.
+last_updated_timestamp: 1733237009511
+name: LightGBM with class_weight scale pos weight
+run_id: a0ac4ac604de47ab96dea35b0878d794
+run_link: ''
+source: mlflow-artifacts:/0/a0ac4ac604de47ab96dea35b0878d794/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/a0ac4ac604de47ab96dea35b0878d794/artifacts/model
+user_id: null
+version: 2
