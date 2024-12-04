@@ -34,14 +34,13 @@ jobs:
       run: |
         pytest test_unitaires/
 
-
     - name: Upload files to PythonAnywhere
       env:
         PA_USERNAME: ${{ secrets.PA_USERNAME }}
         PA_PASSWORD: ${{ secrets.PA_PASSWORD }}
       run: |
-          scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
+        scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
           
-      - name: SSH command to restart app
-        run: |
-          ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
+    - name: SSH command to restart app
+      run: |
+        ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
