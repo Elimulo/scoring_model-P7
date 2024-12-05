@@ -37,25 +37,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # - name: Set up SSH key for authentication
-    #   run: |
-    #     mkdir -p ~/.ssh
-    #     echo "${{ secrets.PA_SSH_KEY }}" > ~/.ssh/id_rsa
-    #     chmod 600 ~/.ssh/id_rsa
-    #     ssh-keyscan pythonanywhere.com >> ~/.ssh/known_hosts
-        
-    # - name: Deploy to PythonAnywhere using SCP
-    #   run: |
-    #     scp -r ./app $PA_USERNAME@pythonanywhere.com:/home/$PA_USERNAME/mysite/
-    #   env:
-    #     PA_USERNAME: ${{ secrets.PA_USERNAME }}
-
-    # - name: SSH command to restart app on PythonAnywhere
-    #   run: |
-    #     ssh $PA_USERNAME@pythonanywhere.com "source ~/myenv/bin/activate && cd ~/mysite && streamlit run app.py"
-    #   env:
-    #     PA_USERNAME: ${{ secrets.PA_USERNAME }}
-
     - name: Stop MLflow Server
       run: |
-        kill $(cat mlflow_pid.txt)
+        if [ -f mlflow_pid.txt ]; then
+          kill $(cat mlflow_pid.txt)
+        else
+          echo "mlflow_pid.txt not found"
+        fi
+

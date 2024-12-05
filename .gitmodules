@@ -1,0 +1,3 @@
+[submodule "prediction"]
+	path = prediction
+	url = https://git.heroku.com/p7prediction.git
