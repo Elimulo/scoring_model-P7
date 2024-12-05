@@ -1,3 +1,6 @@
 [submodule "prediction"]
 	path = prediction
 	url = https://git.heroku.com/p7prediction.git
+[submodule "streamlit"]
+	path = streamlit
+	url = https://github.com/Elimulo/streamlit-heroku-app
