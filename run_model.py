@@ -115,3 +115,8 @@ def train_model(train_df, name='LightGBM_Final'):
         
     return run_id
 
+# Main function execution
+if __name__ == "__main__":
+    train_df = pd.read_csv('data/train_df.csv')
+    run_id = train_model(train_df)
+    print(f"Run completed with run ID: {run_id}")

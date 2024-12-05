@@ -9,11 +9,11 @@ app = Flask(__name__)
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 # Load the LightGBM model via mlflow.sklearn (since LightGBM is compatible with scikit-learn)
-model_uri = 'runs:/65a069f4d14f4a37a59045771ae2a7f2/LightGBM_final'
-model = mlflow.sklearn.load_model(model_uri)
+model_uri = 'runs:/ec3f9fc05b94404eb297e518416d9ea6/LightGBM_Final'
+model = mlflow.lightgbm.load_model(model_uri)
 
 # Helper function to predict default with probability
-def predict_default(client_data, threshold=0.54):
+def predict_default(client_data, threshold=0.53):
     # Convert client_data into a pandas DataFrame
     client_df = pd.DataFrame([client_data])
 
