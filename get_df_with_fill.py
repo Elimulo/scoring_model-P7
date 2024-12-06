@@ -318,7 +318,9 @@ def main(debug = False):
         gc.collect()
     with timer("Filled Nan and inf values"):        
         completion_percentage = data_completion_percentage(df)
+        print(df.shape)
         df_cleaned = filter_columns_by_completion(df, completion_percentage)
+        print(df_cleaned.shape)
         df_filled = fill_nans_with_median_except_target(df_cleaned)
         df_filled.columns = df_filled.columns.str.replace('[^A-Za-z0-9_]+', '', regex=True)   
         df_filled.to_csv('data/df_filled.csv', index=False)
